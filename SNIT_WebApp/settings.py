@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "website",
-
+    "website",  # Your app
 ]
 
 MIDDLEWARE = [
@@ -78,11 +77,11 @@ WSGI_APPLICATION = "SNIT_WebApp.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'snit_website',
-		'USER': 'root',
-		'PASSWORD': 'Kishore@123',
-		'HOST':'localhost',
-		'PORT':'3306',
+        'NAME': 'snit_website',
+        'USER': 'root',
+        'PASSWORD': 'Kishore@123',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -116,12 +115,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Add your static files directory here if needed
+]
+STATIC_ROOT = BASE_DIR / "staticfiles"  # Directory where static files will be collected
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
 
 
 # Email Settings
